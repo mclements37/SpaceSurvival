@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+	<title>Creative 3</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="main.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="main.css">
+</head>
+<iframe width="0" height="0" src="https://www.youtube.com/embed/imtPF2b2Q4M?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+<h1>Space Survival</h1>
+
+
+<div id="spaceship">
+	<img src="http://www.animatedimages.org/data/media/604/animated-spaceship-image-0037.gif" border="0" alt="animated-spaceship-image-0037"/>
+	<img src="http://www.animatedimages.org/data/media/604/animated-spaceship-image-0011.gif" border="0" alt="animated-spaceship-image-0011"/>
+
+</div>
+<body ng-app="myApp"> 
+	<div ng-controller="myController">
+		<button class="button" ng-click="countdown()">Accept the Challenge</button> 
+
+		<div id="space">
+		</div>
+		<!--<button class="button" ng-click="stop()">Stop</button>-->
+
+		<div class="card">
+			<h2>Oxygen Level</h2>
+			<button class="button" ng-click="addOxygen()">Add Oxygen</button>
+
+			<div class="myProgress">
+				<div id="oxygenBar"></div>
+			</div>
+		</div>
+
+		
+		<div class="card">
+			<h2>Shield Level</h2>
+			<button class="button" ng-click="rechargeShield()">Recharge Shield</button>
+
+			<div class="myProgress">
+				<div id="shieldBar"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2>Internal Temperature</h2>
+			<button class="button" ng-click="useHeater()">Use Heater</button>
+
+			<div class="myProgress">
+				<div id="heatBar"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<h2>Battery Level</h2>
+			<button class="button" ng-click="rechargeBattery()">Recharge Battery</button>
+
+			<div class="myProgress">
+				<div id="batteryBar"></div>
+			</div>
+		</div>
+
+
+		<h2>Refresh the page to start over.</h2>
+	<iframe width="0" height="0" src="?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>
