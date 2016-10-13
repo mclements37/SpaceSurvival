@@ -5,6 +5,7 @@ myModule.controller("myController",['$scope','$timeout', function($scope,$timeou
 	$scope.heatLevel = 100;
 	$scope.batteryLevel = 100;
 	$scope.shieldLevel = 100;
+	$scope.test = 0;
 
 	$scope.addOxygen = function() {
 		if ($scope.oxygenLevel < 100) {
@@ -37,47 +38,53 @@ myModule.controller("myController",['$scope','$timeout', function($scope,$timeou
 
 	$scope.countdown = function() {
 		stopped = $timeout(function() {
-			$scope.oxygenLevel--;  
-			$scope.oxygenLevel--;  
-			$scope.heatLevel--;  
-			$scope.batteryLevel--;  
-			$scope.shieldLevel--;  
+			$scope.oxygenLevel -= 2;  
+			$scope.oxygenLevel -= 2;  
+			$scope.heatLevel -= 2;  
+			$scope.batteryLevel -= 2;  
+			$scope.shieldLevel -= 2;
+			$scope.test++;  
 			$('#oxygenBar').css('width', $scope.oxygenLevel + "%");
 			$('#batteryBar').css('width', $scope.batteryLevel + "%");
 			$('#heatBar').css('width', $scope.heatLevel + "%");
 			$('#shieldBar').css('width', $scope.shieldLevel + "%");
 			if ($scope.oxygenLevel == 0) {
-				alert("You let your oxygen level run out and tragically suffocated. Game over.");
+				alert("You let your oxygen level run out and tragically suffocated. Game over! You lasted " + $scope.test + " seconds!");
 				$scope.heatLevel = 0;
 				$scope.batteryLevel = 0;
 				$scope.shieldLevel = 0;
+				$scope.test = 0;
 			}
 			else if ($scope.shieldLevel == 0) {
-				alert("You let your shield level all the way down and became completely vulenerable. Game Over!");
+				alert("You let your shield level all the way down and became completely vulenerable. Game Over! You lasted " + $scope.test + " seconds!");
 				$scope.oxygenLevel = 0;
 				$scope.heatLevel = 0;
 				$scope.batteryLevel = 0;
+				$scope.test = 0;
 			}
 			else if ($scope.heatLevel == 0) {
-				alert("You let your temperature drop to below freezing and froze to death. Game Over!");
+				alert("You let your temperature drop to below freezing and froze to death. Game Over! You lasted " + $scope.test + " seconds!");
 				$scope.oxygenLevel = 0;
 				$scope.batteryLevel = 0;
 				$scope.shieldLevel = 0;
+				$scope.test = 0;
 			}
 			else if ($scope.batteryLevel == 0) {
-				alert("You let your ship's battery level reach zero powering down your entire ship. Game Over!");
+				alert("You let your ship's battery level reach zero powering down your entire ship. Game Over! You lasted " + $scope.test + " seconds!");
 				$scope.oxygenLevel = 0;
 				$scope.heatLevel = 0;
 				$scope.shieldLevel = 0;
+				$scope.test = 0;
 			}
+
 			$scope.countdown();   
-		}, 500);
+		}, 1000);
 	};
 
 	var stopped;
 	$scope.stop = function(){
 		$timeout.cancel(stopped);
-
+		$timeout.cancel(myTimeout);
 	};
 
 
