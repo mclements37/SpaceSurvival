@@ -38,43 +38,43 @@ myModule.controller("myController",['$scope','$timeout', function($scope,$timeou
 
 	$scope.countdown = function() {
 		stopped = $timeout(function() {
-			$scope.oxygenLevel -= 2;  
-			$scope.oxygenLevel -= 2;  
+			$scope.oxygenLevel -= 3;  
 			$scope.heatLevel -= 2;  
-			$scope.batteryLevel -= 2;  
+			$scope.batteryLevel -= 1;  
 			$scope.shieldLevel -= 2;
 			$scope.test++;  
 			$('#oxygenBar').css('width', $scope.oxygenLevel + "%");
 			$('#batteryBar').css('width', $scope.batteryLevel + "%");
 			$('#heatBar').css('width', $scope.heatLevel + "%");
 			$('#shieldBar').css('width', $scope.shieldLevel + "%");
-			if ($scope.oxygenLevel == 0) {
+			if ($scope.oxygenLevel == -3 || $scope.oxygenLevel == -1 || $scope.oxygenLevel == -2) {
 				alert("You let your oxygen level run out and tragically suffocated. Game over! You lasted " + $scope.test + " seconds!");
 				$scope.heatLevel = 0;
 				$scope.batteryLevel = 0;
 				$scope.shieldLevel = 0;
-				$scope.test = 0;
+				$scope.stop();
+				
 			}
-			else if ($scope.shieldLevel == 0) {
+			else if ($scope.shieldLevel == -2 || $scope.shieldLevel == -1) {
 				alert("You let your shield level all the way down and became completely vulenerable. Game Over! You lasted " + $scope.test + " seconds!");
 				$scope.oxygenLevel = 0;
 				$scope.heatLevel = 0;
 				$scope.batteryLevel = 0;
-				$scope.test = 0;
+				$scope.stop();
 			}
-			else if ($scope.heatLevel == 0) {
+			else if ($scope.heatLevel == -2 || $scope.heatLevel == -1) {
 				alert("You let your temperature drop to below freezing and froze to death. Game Over! You lasted " + $scope.test + " seconds!");
 				$scope.oxygenLevel = 0;
 				$scope.batteryLevel = 0;
 				$scope.shieldLevel = 0;
-				$scope.test = 0;
+				$scope.stop();
 			}
-			else if ($scope.batteryLevel == 0) {
+			else if ($scope.batteryLevel == -1) {
 				alert("You let your ship's battery level reach zero powering down your entire ship. Game Over! You lasted " + $scope.test + " seconds!");
 				$scope.oxygenLevel = 0;
 				$scope.heatLevel = 0;
 				$scope.shieldLevel = 0;
-				$scope.test = 0;
+				$scope.stop();
 			}
 
 			$scope.countdown();   

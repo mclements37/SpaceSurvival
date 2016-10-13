@@ -29,7 +29,7 @@
 
 		<div class="card">
 			<h2>Oxygen Level</h2>
-			<button class="button" ng-click="addOxygen()">Add Oxygen</button>
+			<button class="button" id="greenbutton" ng-click="addOxygen()">Add Oxygen</button>
 
 			<div class="myProgress">
 				<div id="oxygenBar"></div>
@@ -39,7 +39,7 @@
 		
 		<div class="card">
 			<h2>Shield Level</h2>
-			<button class="button" ng-click="rechargeShield()">Recharge Shield</button>
+			<button class="button" id="bluebutton" ng-click="rechargeShield()">Recharge Shield</button>
 
 			<div class="myProgress">
 				<div id="shieldBar"></div>
@@ -48,7 +48,7 @@
 
 		<div class="card">
 			<h2>Internal Temperature</h2>
-			<button class="button" ng-click="useHeater()">Use Heater</button>
+			<button class="button" id="redbutton" ng-click="useHeater()">Use Heater</button>
 
 			<div class="myProgress">
 				<div id="heatBar"></div>
@@ -57,14 +57,14 @@
 
 		<div class="card">
 			<h2>Battery Level</h2>
-			<button class="button" ng-click="rechargeBattery()">Recharge Battery</button>
+			<button class="button" id="yellowbutton" ng-click="rechargeBattery()">Recharge Battery</button>
 
 			<div class="myProgress">
 				<div id="batteryBar"></div>
 			</div>
 		</div>
 
-		<p style="font-size: 20px;"> <strong> {{test}} </strong></p>
+		<p style="font-size: 40px;"> <strong> {{test}} </strong></p>
 		<h2>Refresh the page to start over.</h2>
 
 	<iframe width="0" height="0" src="?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>

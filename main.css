@@ -93,6 +93,27 @@ h1{
   color: white;
 }
 
+#bluebutton:hover{
+  background-color: blue;
+  color: white;
+}
+
+#greenbutton:hover{
+background-color: #4CAF50;
+color: white;
+}
+
+#yellowbutton:hover{
+background-color: yellow;
+color: black;
+}
+
+#redbutton:hover{
+background-color: red;
+color: white;
+}
+
+
 
 ul, li {
   color: white;
